@@ -301,4 +301,3 @@ export const Lobby = () => {
   
 }
 
-export default Lobby
