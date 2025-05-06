@@ -34,7 +34,9 @@ const App = () => {
         <Loader className="size-10 animate-spin" />
       </div>
     );
-
+    else {
+      console.log("somethig is  wrong")
+    }
   return (
     <div data-theme={theme}>
       <Navbar />
