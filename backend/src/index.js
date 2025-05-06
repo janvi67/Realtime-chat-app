@@ -15,12 +15,24 @@ dotenv.config();
 
 const PORT = process.env.PORT;
 const __dirname = path.resolve();
+const allowedOrigins = [
+  "https://realtime-chat-app-frontend-psi.vercel.app", // Vercel frontend
+  "http://localhost:5173" // Vite or React dev frontend (optional)
+];
 
 app.use(express.json());
 app.use(cookieParser());
+
+
 app.use(
   cors({
-    origin: "https://realtime-chat-app-frontend-psi.vercel.app",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
