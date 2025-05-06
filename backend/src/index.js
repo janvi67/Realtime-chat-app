@@ -16,7 +16,7 @@ dotenv.config();
 const PORT = process.env.PORT;
 const __dirname = path.resolve();
 const allowedOrigins = [
-  "https://realtime-chat-app-frontend-psi.vercel.app", // Vercel frontend
+  "https://realtime-chat-app-ten-rho.vercel.app", // Vercel frontend
   "http://localhost:5173" // Vite or React dev frontend (optional)
 ];
 
@@ -48,7 +48,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-server.listen(PORT, () => {
+server.listen(PORT,"0.0.0.0", () => {
   console.log("server is running on PORT:" + PORT);
   connectDB();
 });
